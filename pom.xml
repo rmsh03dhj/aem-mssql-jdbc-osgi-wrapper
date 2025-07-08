@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example.aem</groupId>
+  <artifactId>mssql-jdbc-osgi</artifactId>
+  <version>12.10.0</version>
+  <packaging>bundle</packaging>
+
+  <name>MSSQL JDBC OSGi Wrapper</name>
+  <description>OSGi wrapped Microsoft SQL Server JDBC Driver for AEM</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>12.10.0.jre8</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>5.1.2</version>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>com.microsoft.sqlserver</Bundle-SymbolicName>
+            <Export-Package>com.microsoft.sqlserver.jdbc</Export-Package>
+            <Import-Package>*</Import-Package>
+            <Bundle-Version>12.10.0</Bundle-Version>
+            <Bundle-Name>MSSQL JDBC OSGi Driver</Bundle-Name>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
